@@ -15,5 +15,3 @@ def check_palindrom(input_string):
         if input_string[i] != input_string[len(input_string)-1-i]:
             return False
     return True
-
-print(check_palindrom('чРРч'))
