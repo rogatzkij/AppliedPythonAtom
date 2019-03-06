@@ -12,6 +12,8 @@ def check_palindrom(input_string):
     '''
 
     for i in range(len(input_string)//2):
-        if input_string[i] != input_string[-i]:
+        if input_string[i] != input_string[len(input_string)-1-i]:
             return False
     return True
+
+print(check_palindrom('чРРч'))
