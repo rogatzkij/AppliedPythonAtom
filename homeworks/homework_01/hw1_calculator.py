@@ -11,9 +11,9 @@ def calculator(x, y, operator):
     :param operator: 4 оператора: plus, minus, mult, divide
     :return: результат операции или None, если операция не выполнима
     '''
-    if isinstance(x, numbers.Number) == False:
+    if not isinstance(x, numbers.Number):
         return None
-    if isinstance(y, numbers.Number) == False:
+    if not isinstance(y, numbers.Number):
         return None
 
     if operator == "plus":
