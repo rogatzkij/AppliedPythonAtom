@@ -10,24 +10,20 @@ def is_bracket_correct(input_string):
     :param input_string: строка, содержащая 6 типов скобок (,),[,],{,}
     :return: True or False
     '''
+    '''
+    сделан на основе кода со stackoverflow, можно не засчитывать баллы
+    '''
+    opening = "([{"
+    closing = ")]}"
+    stack = []  # стек для скобок
 
-    for s0 in input_string.split("("):
-        for s1 in s0.split(")"):
-            if s1.count("[") != s1.count("]"):
-                return False
-            elif s1.count("{") != s1.count("}"):
-                return False
-    for s0 in input_string.split("["):
-        for s1 in s0.split("]"):
-            if s1.count("(") != s1.count(")"):
-                return False
-            elif s1.count("{") != s1.count("}"):
-                return False
+    for character in input_string:
+        if character in opening:  # открывающая скобка
+            stack.append(opening.index(character))  # индекс скобки в opening
+        elif character in closing:  # закрывающая скобка
+            if stack and stack[-1] == closing.index(character):  # последний был добавлен тот же тип скобок
+                stack.pop()  # удаляем
+            else:
+                return False  # не тот тип
 
-    for s0 in input_string.split("{"):
-        for s1 in s0.split("}"):
-            if s1.count("[") != s1.count("]"):
-                return False
-            elif s1.count("(") != s1.count(")"):
-                return False
-    return True
+    return not stack  # not на случай если только открывающиеся
