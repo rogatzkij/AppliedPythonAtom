@@ -21,7 +21,7 @@ def is_bracket_correct(input_string):
         if character in opening:  # открывающая скобка
             stack.append(opening.index(character))  # индекс скобки в opening
         elif character in closing:  # закрывающая скобка
-            if stack and stack[-1] == closing.index(character):  # последний был добавлен тот же тип скобок
+            if stack and stack[-1] == closing.index(character):  # тот же тип скобок
                 stack.pop()  # удаляем
             else:
                 return False  # не тот тип
